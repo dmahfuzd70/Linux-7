@@ -1,0 +1,234 @@
+  SAMBA Server  (File Server)
+  ---------------------------------
+   => Windows to non-windows (Linux/UNIX/MAC) File share
+   => Use CIFS file system
+   
+    Package Name: samba, samba-client, cifs-utils
+    Daemon: smb, nmb
+    port: 445, 137, 139, 138
+    Protocol: TCP & UDP
+    Configuration File: /etc/samba/smb.conf
+    
+  Step 01: Change Hostname
+ --------------------------
+ [root@localhost ~]# hostname
+ [root@localhost ~]# hostnamectl set-hostname sambaX.example.com
+ [root@localhost ~]# bash
+
+ Step 02: Configure IP Address
+ ------------------------------
+ [root@sambaX ~]# ifconfig
+ [root@sambaX ~]# nmtui
+
+ => Manual
+
+ IP: 172.25.11.200+X/24
+ GW: 172.25.11.1
+ DNS1: 8.8.8.8
+
+  => Automatically
+  => Activate
+
+ [root@sambaX ~]# ifconfig
+
+ Step 03: Add Local Host Entry
+ ------------------------------
+ [root@sambaX ~]# vim /etc/hosts
+  172.25.11.200+X	sambaX.example.com    sambaX
+
+ Step 04: Install samba packages
+ -------------------------------
+ [root@sambaX ~]# rpm -qa | grep samba 
+
+ [root@sambaX ~]# yum install samba samba-client cifs-utils -y
+
+ [root@sambaX ~]# rpm -qa | grep samba
+
+samba-common-4.1.1-31.el7.x86_64
+samba-4.1.1-31.el7.x86_64          ======> Main RPM
+samba-client-4.1.1-31.el7.x86_64   ======> smbpasswd
+samba-libs-4.1.1-31.el7.x86_64
+
+Step 05: Preparing Samba Users and Directory
+--------------------------------------------
+[root@samba ~]# mkdir /samba/public -p
+[root@samba ~]# chmod 0755 -R /samba/public/
+[root@samba ~]# chown nobody:nobody -R /samba/public/
+
+[root@samba ~]# ls -ld /samba/public/
+drwxr-xr-x. 2 nobody nobody 6 Jun 28 08:13 /samba/public/
+
+Secure Share Configure:
+-----------------------
+[root@samba ~]# mkdir /samba/secure -p
+[root@samba ~]# chmod 2775 -R /samba/secure/
+[root@samba ~]# groupadd samba-users
+[root@samba ~]# chgrp samba-users /samba/secure -R
+
+[root@samba ~]# ls -ld /samba/secure/
+drwxrwsr-x. 2 root samba-users 6 Jun 28 09:54 /samba/secure/
+
+[root@samba ~]# useradd -G samba-users -s /sbin/nologin sadia
+[root@samba ~]# useradd -G samba-users -s /sbin/nologin rafat
+[root@samba ~]# useradd -s /sbin/nologin rakib
+[root@samba ~]# smbpasswd -a sadia
+[root@samba ~]# smbpasswd -a rafat
+[root@samba ~]# smbpasswd -a rakib
+
+[root@samba ~]# cat /etc/group | grep samba-users
+samba-users:x:1007:sadia,rafat
+
+[root@samba ~]# pdbedit -L
+rafat:1006:
+sadia:1005:
+rakib:1007:
+
+Step 03: Samba Server Configure:
+--------------------------------
+[root@samba ~]# vim /etc/samba/smb.conf
+ :set nu
+
+ 65 [global]
+
+ 89     workgroup = EXAMPLE-X              ; MYHOME to EXAMPLE (BLOCK Letter)
+ 90     server string = Samba Server X       ; Server Name
+ 92     netbios name = Fileserver          ; remove comment ";"
+ 95     hosts allow = 127. 172.25.11.      ; netowrk ID with '.'
+
+123         security = user                ; secure share
+124         map to guest = bad user        ; public share
+125         passdb backend = tdbsam
+
+  Note:
+  -----
+   map to guest = bad user   ; no password required
+   security = user   	     ; password required
+
+  # write down as following share
+
+323 [public]
+324         comment = Public Share
+325         path = /samba/public
+326         public = yes
+327         writable = yes
+328         browseable = yes
+329         read only = no
+
+331 [secure]
+332         comment = Secure Share RW for samba-users RO for rakib
+333         path = /samba/secure
+334         public = no
+335         writable = yes
+336         write list = @samba-users
+337         browseable = yes
+338         read only = yes
+339         read list = rakib
+
+   :x (save and quit) 
+
+Step 04: SELinux Disabled and Firewall Configure
+------------------------------------------------
+[root@samba ~]# systemctl start smb nmb
+[root@samba ~]# systemctl enable smb nmb
+[root@samba ~]# systemctl status smb nmb
+
+[root@samba ~]# systemctl restart firewalld
+[root@samba ~]# systemctl enable firewalld.service
+
+[root@samba ~]# firewall-cmd --permanent --add-service=samba
+ success
+[root@samba ~]# firewall-cmd --reload 
+ success
+
+[root@samba ~]# setenforce 0         ;disable SELinux
+
+[root@samba ~]# testparm             ;verify 
+
+Step 05: Browsing (Client Part)
+------------------------------
+    => Change Work-Group from my computer
+    => Change Computer Name
+    => Reboot
+
+	Browse from Windows PC:
+	-----------------------
+	=> Start menu => run => \\172.25.11.200+X (samba IP)
+
+	Linux Desktop (Client) to Linux ServerX Access:
+	----------------------------------------------
+	[root@hostX ~]# smbclient -L //172.25.11.200+X -U rafat
+         : 123
+
+ 	* [-N|--no-pass]
+ 	* [-L|--list HOST]
+        * [-U] -- user
+
+ Mount:
+ ------
+[root@hostX ~]# mount -t cifs //172.25.11.200+X/secure /mnt -o username=rafat
+ Paasswd: rafat's passwd
+
+[root@serverX ~]# df -HT 
+
+[root@serverX ~]# cd /mnt
+[root@serverX mnt]# ls
+[root@serverX mnt]# cd
+[root@serverX ~]# umount /mnt
+[root@serverX ~]# df -HT 
+
+Permanent Mount:
+----------------
+[root@desktopX ~]# vim /etc/fstab
+ //172.25.11.200+X/secure  /mnt  cifs	defaults,username=rafat,pass=123  0 0
+
+[root@desktopX ~]# mount -a
+[root@desktopX ~]# df -HT
+
+Mount Windows Share from Linux:
+-------------------------------
+=> Create a folder name 'dataX' in windows desktop
+=> create some files in 'dataX' folder
+=> share the directory
+=> move to desktopX linux system
+
+[root@desktopX ~]# smbclient -L //172.25.11.XP(IP) -N 
+[root@desktopX ~]# mount -t cifs //172.25.11.XP(IP)/dataX  /mnt
+[root@desktopX ~]# df -HT 
+[root@desktopX ~]# cd /mnt
+[root@desktopX mnt]# ls
+
+[backup]                         -> Share name which will be displayed.
+comment = Access files stores 	 -> Comment displayed in Network.
+path = /samba/backup             -> Path of directory associated with the share.
+host allow = IP address          -> Specify which domain can access this share ( Also you can make entry of it in global section).
+host deny= IP address            -> Specify which domain can’t access this share.
+valid users = username           -> Name of users who can access the share.
+public = No/Yes                  -> Specify whether guest user can access this share or not.
+writable = No/yes                -> Specify whether the shared directory is writable or not.
+browseable = No/Yes              -> specify whether the shared directory should be visible or not.
+
+ =============== DOne =================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
