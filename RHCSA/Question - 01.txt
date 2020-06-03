@@ -1,0 +1,15 @@
+01. Create a colloborate direcoty /linux/centos 
+02. copy '/etc' directory to '/linux/centos'
+03. copy '/etc/passwd' file to '/linux/centos'
+04. create a file name 'myfile' under /linux/centos
+05. write 'welcome to 1st test' to '/linux/centos/myfile' file.
+06. find the 'FTP' string from '/etc/passwd' file 
+     and output append in '/linux/centos/myfile'
+07. create an user  
+09. Create an user 'sam' with an User ID '4000'
+10. Set the password of 'sam' is 'centos123'
+10. a. Create a group 'sysusers'
+10. b. User 'robin' and 'liza'  member of 'sysusers' group
+10. c.  User 'rafat' not a member of 'sysusers' group
+10. d. User 'rafat' doesn't have privilege to access shell
+10. e. All user's password is 'password'
