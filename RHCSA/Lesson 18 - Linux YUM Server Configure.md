@@ -1,7 +1,7 @@
 RPM Installation:
 -----------------
- => Manually (rpm command)
- => Automatically (YUM Server)
+ 1. Manually (rpm command)
+ 2. Automatically (YUM Server)
 
 Yum Server Configure:
 ---------------------
