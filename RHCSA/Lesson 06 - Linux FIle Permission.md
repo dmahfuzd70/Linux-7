@@ -224,6 +224,6 @@ Linux SUID, SGID and Sticky Bit Concept:
  [student@dektopX lesson06]$ rm mydir1/file1
  [student@dektopX lesson06]$ rm mydir2/file2
 
-  rm: cannot remove ‘mydir2/file2’: Operation not permitted
+  rm: cannot remove â€˜mydir2/file2â€™: Operation not permitted
 
  ======================== Thank you ==================
