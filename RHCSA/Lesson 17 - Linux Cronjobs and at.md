@@ -34,10 +34,10 @@ Crontab Edit
 
 Example 01:  Schedule a job every night 11.59 PM to shutdown the system: 
 ------------------------------------------------------------------------
-[root@serverX ~]# crontab –e
+[root@serverX ~]# crontab â€“e
 59  23   *   *   *   /usr/sbin/poweroff 
 
-[root@serverX ~]# crontab –l
+[root@serverX ~]# crontab â€“l
 
 Set the date 23.57 for job testing: 
 -----------------------------------
@@ -60,7 +60,7 @@ Example 02: Take etc backup in .tar format under /backup directory on every Frid
 [root@serverX ~]# date +\%Y-\%m-\%d
 
 [root@serverX ~]# mkdir /backup
-[root@serverX ~]# crontab –e
+[root@serverX ~]# crontab â€“e
 
  00 00 * * 5  tar -cvf /backup/etc_$(date +\%Y-\%m-\%d).tar  /etc
 
@@ -78,12 +78,12 @@ Example 02: Take etc backup in .tar format under /backup directory on every Frid
 
 Example 03: Schedule job to run every five minute. Who are currently logged in server:
 ------------------------------------------------------------------------------
-[root@serverX ~]# crontab –e 
+[root@serverX ~]# crontab â€“e 
 */5  *  *  *  *  who >> /backup/login_$(date +\%Y-\%m-\%d-\%T)
 
 Example 04: Check Ping Status at Night 1 to 5.00 AM every hour:
 --------------------------------------------------------------
-[root@serverX ~]# crontab –e 
+[root@serverX ~]# crontab â€“e 
 
 00 1-5 * * *  ping -c 4 172.25.11.1 >> /backup/ping
 
@@ -93,11 +93,11 @@ Example 04: Check Ping Status at Night 1 to 5.00 AM every hour:
 
 Example 05:  Schedule a job to run every six hours in a day:
 ------------------------------------------------------------
-[root@serverX ~]# crontab –e
+[root@serverX ~]# crontab â€“e
 
 * 0,6,12,18  *  *  * cat /proc/meminfo | mail -s "Memory Status" admin@example.com
  
-Example 06: Run a script at 01:00 am each weekday [Monday – Friday]: 
+Example 06: Run a script at 01:00 am each weekday [Monday â€“ Friday]: 
 ------------------------------------------------------------------
 00  01  *  *  1-5   /backup/db_backup.sh 
 
@@ -107,12 +107,12 @@ Example 07: Run a cronjob December 31 at Mid Night (23:59)  every year:
 
 Remove all cron jobs: 
 ----------------------------
-[root@serverX ~]# crontab –r
-[root@serverX ~]# crontab –l
+[root@serverX ~]# crontab â€“r
+[root@serverX ~]# crontab â€“l
 
 User based cron job:
 --------------------
-[root@serverX ~]# crontab –e -u student
+[root@serverX ~]# crontab â€“e -u student
 
 
 ===================== Thank you ===================
