@@ -1,8 +1,8 @@
 Text Processing tools: (echo/Grep/tail/cat/head/less/cut/more/locate/find)
 -------------------------------------------------------------------------
-[student@desktopX ~]$ cd 
-[student@desktopX ~]$ mkdir -p linux/lesson03
-[student@desktopX ~]$ cd linux/lesson03/
+ [student@desktopX ~]$ cd 
+ [student@desktopX ~]$ mkdir -p linux/lesson03
+ [student@desktopX ~]$ cd linux/lesson03/
 [student@desktopX lesson03]$ ls
 [student@desktopX lesson03]$ cp /etc/passwd .
 [student@desktopX lesson03]$ ls
