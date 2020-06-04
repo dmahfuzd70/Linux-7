@@ -194,6 +194,7 @@ SELinux Testing: Example: 02
     ====================== Thank you ======================
 
 Run the following command to list all current rules in your filesystem:
+=======================================================================
     # semanage fcontext -l
 
     List all user:
@@ -203,4 +204,5 @@ Run the following command to list all current rules in your filesystem:
     #seinfo -r
 
 List all available file contexts (which you may choose from when assigning contexts to your files):
-    #seinfo -t
+===================================================================================================
+     # seinfo -t
