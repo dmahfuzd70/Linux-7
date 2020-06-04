@@ -201,7 +201,7 @@ Mount Windows Share from Linux:
 comment = Access files stores 	 -> Comment displayed in Network.
 path = /samba/backup             -> Path of directory associated with the share.
 host allow = IP address          -> Specify which domain can access this share ( Also you can make entry of it in global section).
-host deny= IP address            -> Specify which domain can’t access this share.
+host deny= IP address            -> Specify which domain canâ€™t access this share.
 valid users = username           -> Name of users who can access the share.
 public = No/Yes                  -> Specify whether guest user can access this share or not.
 writable = No/yes                -> Specify whether the shared directory is writable or not.
