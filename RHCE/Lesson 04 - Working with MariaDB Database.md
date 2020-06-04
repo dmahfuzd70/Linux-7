@@ -32,7 +32,8 @@ Why use mariadb
 
 	Additional, unmatched features in MariaDB provide better monitoring through the introduction of microsecond precision 
 	and extended user statistics. MariaDB also enhances the KILL command to allow you to kill all queries for a user 
-	(KILL USER username) or to kill a query ID (KILL QUERY ID query_id). MariaDB also switched to Perl-compatible regular 	expressions (PCRE), which offer more powerful and precise queries than standard MySQL regex support.
+	(KILL USER username) or to kill a query ID (KILL QUERY ID query_id). MariaDB also switched to Perl-compatible regular
+	expressions (PCRE), which offer more powerful and precise queries than standard MySQL regex support.
 
 	In addition to more features, MariaDB has also applied a number of query optimizations for queries connected with 
 	disk access, join operations, subqueries, derived tables and views, execution control, and even explain statements. 
@@ -201,14 +202,14 @@ how to delete table in mariadb
 creating user account in mariadb
 --------------------------------
 	MariaDB [(none)]> create user mobius@localhost identified by 
-    'redhat';	
+    	'redhat';	
 		
 	// create user sql command for user create
 	// mobius is username.
 	// @localhost- user mobius can connect just form localhost
 Rename User account in mariadb
 ------------------------------
-MariaDB [(none)]>RENAME USER 'mobius@localhost' TO 
+	MariaDB [(none)]>RENAME USER 'mobius@localhost' TO 
    	'duck'@'localhost';
 			
 		
