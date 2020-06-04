@@ -26,9 +26,9 @@ Why use mariadb
 	big data for large organizations and corporate users.
 
 	MySQL's usual (and slow) database engines MyISAM and InnoDB are replaced in MariaDB by Aria and XtraDB respectively. 
-	Aria offers better caching, which makes a difference when it comes to disk-intensive operations. Temporary tables also 
-	use Aria, which speeds up complex queries, such as those involving GROUP BY and DISTINCT. Percona's XtraDB gets rid of 
-	all of the InnoDB problems with slow performance and stability, especially in high load environments.
+	Aria offers better caching, which makes a difference when it comes to disk-intensive operations. Temporary tables 
+	also use Aria, which speeds up complex queries, such as those involving GROUP BY and DISTINCT. Percona's XtraDB 
+	gets rid of all of the InnoDB problems with slow performance and stability, especially in high load environments.
 
 	Additional, unmatched features in MariaDB provide better monitoring through the introduction of microsecond precision 
 	and extended user statistics. MariaDB also enhances the KILL command to allow you to kill all queries for a user 
@@ -302,7 +302,8 @@ Run all service
 		
 	Configuring MariaDB for Remote Client Access
 	Finding the Defaults File
-	To enable MariaDB to listen to remote connections, you need to edit your defaults file. See Configuring MariaDB with my.cnf for more detail.
+	To enable MariaDB to listen to remote connections, you need to edit your defaults file. 
+	See Configuring MariaDB with my.cnf for more detail.
 
 		
 	  * /etc/my.cnf                      (*nix/BSD)
@@ -312,7 +313,8 @@ Run all service
 		
 Editing the Defaults File
 --------------------------
-	Once you have located the defaults file, use a text editor to open the file and try to find lines like this under the [mysqld] section:
+	Once you have located the defaults file, use a text editor to open the file and try to find 
+	lines like this under the [mysqld] section:
 
 		
 	 [mysqld]
@@ -322,7 +324,9 @@ Editing the Defaults File
     bind-address = 
     ...	
 		
-	(The lines may not be in this order, and the order doesn't matter.) If you are able to locate these lines, make sure they are both commented out (prefaced with hash (#) characters), so that they look like this:
+	(The lines may not be in this order, and the order doesn't matter.) If you are able to locate 
+	these lines, make sure they are both commented out (prefaced with hash (#) characters), so that 
+	they look like this:
 
     
     [mysqld]
@@ -331,19 +335,23 @@ Editing the Defaults File
     ...
     #bind-address = 
     ...
-	(Again, the order of these lines don't matter) Save the file and restart the mysqld daemon or service (see Starting and Stopping MariaDB).
+	(Again, the order of these lines don't matter) Save the file and restart the mysqld daemon or 
+	service (see Starting and Stopping MariaDB).
 
 Granting User Connections From Remote Hosts
 --------------------------------------------		
 	GRANT ALL PRIVILEGES ON *.* TO 'root'@'192.168.100.%' IDENTIFIED BY 'my-new-password' WITH GRANT OPTION;	
 		
-	(% is a wildcard) For more information about how to use GRANT, please see the GRANT page. At this point we have accomplished our goal and we have a user 'root' that can connect from anywhere on the 192.168.100.0/24 LAN.
+	(% is a wildcard) For more information about how to use GRANT, please see the GRANT page. At this point 
+	we have accomplished our goal and we have a user 'root' that can connect from anywhere on 
+	the 192.168.100.0/24 LAN.
 
 Port 3306 is Configured in Firewall
 -------------------------------------
 	One more point to consider whether the firwall is configured to allow incoming request from remote clients:
 
-	On RHEL and CentOS 7, it may be necessary to configure the firewall to allow TCP access to MySQL from remote hosts. To do so, execute both of these commands:
+	On RHEL and CentOS 7, it may be necessary to configure the firewall to allow TCP access to MySQL from remote 
+	hosts. To do so, execute both of these commands:
 
 		
 
