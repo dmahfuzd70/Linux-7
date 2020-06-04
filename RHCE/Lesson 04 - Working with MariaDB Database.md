@@ -25,15 +25,17 @@ Why use mariadb
 	allows you to run SQL and NoSQL in a single database system. MariaDB also supports TokuDB, which can handle 
 	big data for large organizations and corporate users.
 
-	MySQL's usual (and slow) database engines MyISAM and InnoDB are replaced in MariaDB by Aria and XtraDB respectively. 
-	Aria offers better caching, which makes a difference when it comes to disk-intensive operations. Temporary tables 
-	also use Aria, which speeds up complex queries, such as those involving GROUP BY and DISTINCT. Percona's XtraDB 
-	gets rid of all of the InnoDB problems with slow performance and stability, especially in high load environments.
+	MySQL's usual (and slow) database engines MyISAM and InnoDB are replaced in MariaDB by Aria and XtraDB 
+	respectively. Aria offers better caching, which makes a difference when it comes to disk-intensive operations.
+	Temporary tables also use Aria, which speeds up complex queries, such as those involving GROUP BY and 
+	DISTINCT. Percona's XtraDB gets rid of all of the InnoDB problems with slow performance and stability, 
+	especially in high load environments.
 
-	Additional, unmatched features in MariaDB provide better monitoring through the introduction of microsecond precision 
-	and extended user statistics. MariaDB also enhances the KILL command to allow you to kill all queries for a user 
-	(KILL USER username) or to kill a query ID (KILL QUERY ID query_id). MariaDB also switched to Perl-compatible regular
-	expressions (PCRE), which offer more powerful and precise queries than standard MySQL regex support.
+	Additional, unmatched features in MariaDB provide better monitoring through the introduction of microsecond 
+	precision and extended user statistics. MariaDB also enhances the KILL command to allow you to kill all 
+	queries for a user (KILL USER username) or to kill a query ID (KILL QUERY ID query_id). MariaDB also switched 
+	to Perl-compatible regular expressions (PCRE), which offer more powerful and precise queries than standard MySQL 
+	regex support.
 
 	In addition to more features, MariaDB has also applied a number of query optimizations for queries connected with 
 	disk access, join operations, subqueries, derived tables and views, execution control, and even explain statements. 
