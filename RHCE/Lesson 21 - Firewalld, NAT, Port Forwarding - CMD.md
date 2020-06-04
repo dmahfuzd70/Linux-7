@@ -247,10 +247,10 @@ Filtering & Port Forwarding:
 	--
 	[root@server100 ~]# firewall-cmd  --permanent --add-rich-rule 'rule family="ipv4" source address="192.168.X.0/24" service name="ssh" -j reject'
 
-#############  Deploy Outbound NAT Gateway  ##############
-
+Deploy Outbound NAT Gateway 
+----------------------------
 Disable NetworkManager Service: 
-	-------------------------------
+-------------------------------
 	[root@serverX ~]# systemctl stop NetworkManager.service
 	[root@serverX ~]# systemctl disable NetworkManager.service
 	[root@serverX ~]# systemctl status NetworkManager.service
