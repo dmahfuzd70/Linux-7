@@ -132,7 +132,7 @@ Save and Quit:
  :w 	    - Write (save)
  :wq or :x  - Write and quit
  :q 	    - Quit
- :q! 	    - Force quit, don’t save changes
+ :q! 	    - Force quit, donâ€™t save changes
  :wq! 	    - Force write and quit
 
  #vimtutor
