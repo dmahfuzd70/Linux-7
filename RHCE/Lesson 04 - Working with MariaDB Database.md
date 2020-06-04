@@ -172,7 +172,7 @@ how to make relational table in mariadb
 	//relation country table id column between city table countryid column
 how to show data from two table in mariadb
 ------------------------------------------
-Using INNER JOIN
+	Using INNER JOIN
 
 
 	MariaDB [mydb]> select city.id,city.name,country.name from city inner
@@ -180,7 +180,7 @@ Using INNER JOIN
 		
 INNER JOIN: Returns all rows when there is at least one match in BOTH tables
 
-LEFT JOIN
+	LEFT JOIN
 
 
 	MariaDB [mydb]> select city.id,city.name,country.name from city left
@@ -188,7 +188,7 @@ LEFT JOIN
 		
 LEFT JOIN: Return all rows from the left table, and the matched rows from the right table
 
-Using RIGHT JOIN
+	Using RIGHT JOIN
 
 
 	MariaDB [mydb]> select city.id,city.name,country.name from city right
