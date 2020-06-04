@@ -52,9 +52,9 @@ Working with linux CLI:
 
 Linux Command Syntax/Pattern:
 -----------------------------
-    	# command [optoin (-)] argument
+	# command [optoin (-)] argument
 
- 	ex # ping -c 4 172.25.11.254
+	ex # ping -c 4 172.25.11.254
 
 	[student@hostX Desktop]$ cd 
 	[student@hostX ~]$ ls      ;list of files and dir.
@@ -62,21 +62,21 @@ Linux Command Syntax/Pattern:
 	[student@hostX ~]$ ls -l
 	[student@hostX ~]$ ls -la  ; details list with hidden files and dir
 
-      	blue - dir  
-      	b&w - file
-      	red - compress (rpm/zip/rar)
-      	green - execute file
-      	yellow - device (terminal/cd/dvd/usb/hdd)
+	blue - dir  
+	b&w - file
+	red - compress (rpm/zip/rar)
+	green - execute file
+	yellow - device (terminal/cd/dvd/usb/hdd)
       	cyan - link file
-      	magenta - Picture/image/media
+	magenta - Picture/image/media
 
 	[student@hostX ~]$ pwd   ; present working directory
-
-  	"~" 	  => home dir
-  	"/" 	  => root partition (My Computer)
-  	"/root" => root's home dir
-  	"/home" => user's home
-    	i.e.: /home/student
+	
+	"~"	=> home dir
+	"/"	=> root partition (My Computer)
+	"/root" => root's home dir
+	"/home" => user's home
+	i.e.: /home/student
 
 	[student@hostX~]$ => user's home dir 
 
@@ -105,7 +105,8 @@ Linux Command Syntax/Pattern:
 	[student@hostX ~]$ history -c 		; clear all previous history
 	[student@hostX ~]$ history
 
- Shutdown
+
+Shutdown
 ===========
 	[root@hostX ~]# init 0
 	[root@hostX ~]# poweroff
