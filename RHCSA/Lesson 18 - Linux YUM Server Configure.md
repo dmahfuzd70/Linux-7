@@ -16,45 +16,45 @@ Yum Server Configure:
 
  Step 01: Check free space "/var"
  ======= ------------------------
-[root@hostX ~]# df -HT
-Filesystem    Type     Size   Used  Avail Use% Mounted on
-/dev/sda6     ext4      16G   7.1G   7.7G  48% /
+ [root@hostX ~]# df -HT
+ Filesystem    Type     Size   Used  Avail Use% Mounted on
+ /dev/sda6     ext4      16G   7.1G   7.7G  48% /
 
             Note: By default "/var location under "/" partition"
 
 
 Package Query:
 --------------
-[root@hostX Packages]# rpm -qa | grep vsftpd
-[root@hostX Packages]# rpm -qa | grep createrepo
+ [root@hostX Packages]# rpm -qa | grep vsftpd
+ [root@hostX Packages]# rpm -qa | grep createrepo
 
  Step 02: Mount DVD under "/mnt"
  ======= -------------------------  		
-[root@hostX ~]# mount /dev/sr0 /mnt   ; here "sr0" is dvd device
-mount: block dvice /dev/sr0 is write-protected, monting read-only
-[root@hostX ~]# cd /mnt
-[root@hostX mnt]# ls
-[root@hostX mnt]# cd Packages
-[root@hostX Packages]#  ls
+  [root@hostX ~]# mount /dev/sr0 /mnt   ; here "sr0" is dvd device
+  mount: block dvice /dev/sr0 is write-protected, monting read-only
+  [root@hostX ~]# cd /mnt
+  [root@hostX mnt]# ls
+  [root@hostX mnt]# cd Packages
+  [root@hostX Packages]#  ls
 
 ISO Mount:
 ----------
-[root@hostX ~]# mount /root/Desktop/Cen....(Tab-.iso)  /mnt
-[root@hostX ~]# cd /mnt 
-[root@hostX mnt]# ls
-[root@hostX mnt]# cd Packages
-[root@hostX Packages]#  ls
+  [root@hostX ~]# mount /root/Desktop/Cen....(Tab-.iso)  /mnt
+  [root@hostX ~]# cd /mnt 
+  [root@hostX mnt]# ls
+  [root@hostX mnt]# cd Packages
+  [root@hostX Packages]#  ls
 
  Step 03: Dependency Install 
  ======= -------------------
-[root@hostX Packages]# rpm -ivh vsftpd-(Press...Tab....from keyboard
+  [root@hostX Packages]# rpm -ivh vsftpd-(Press...Tab....from keyboard
 
-[root@hostX Packages]# systemctl restart vsftpd.service
-[root@hostX Packages]# systemctl enable vsftpd.service
+  [root@hostX Packages]# systemctl restart vsftpd.service
+  [root@hostX Packages]# systemctl enable vsftpd.service
 
-[root@hostX Packages]# setenforce 0
-[root@hostX Packages]# systemctl stop firewalld
-[root@hostX Packages]# systemctl disable firewalld
+  [root@hostX Packages]# setenforce 0
+  [root@hostX Packages]# systemctl stop firewalld
+  [root@hostX Packages]# systemctl disable firewalld
 
  Step 04: RPM copy to "/var/ftp/pub"
  ======= ---------------------------  
