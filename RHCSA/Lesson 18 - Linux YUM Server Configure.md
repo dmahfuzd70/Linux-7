@@ -30,7 +30,7 @@ Package Query:
 
  Step 02: Mount DVD under "/mnt"
  ======= -------------------------  		
-  [root@hostX ~]# mount /dev/sr0 /mnt   ; here "sr0" is dvd device
+  [root@hostX ~]# mount /dev/sr0 /mnt   ; here "sr0" is dvd device.
   mount: block dvice /dev/sr0 is write-protected, monting read-only
   [root@hostX ~]# cd /mnt
   [root@hostX mnt]# ls
