@@ -92,12 +92,12 @@ Step 04: Export shared directory on NFS Server:
 
 Note:
 ====
-=> /nfshare/* – shared directory
-=> 172.25.11.0/24 – IP address range of clients
-=> rw – Writable permission to shared folder
-=> sync – Synchronize shared directory
-=> no_root_squash – Enable root privilege
-=> no_all_squash - Enable user’s authority
+=> /nfshare/* â€“ shared directory
+=> 172.25.11.0/24 â€“ IP address range of clients
+=> rw â€“ Writable permission to shared folder
+=> sync â€“ Synchronize shared directory
+=> no_root_squash â€“ Enable root privilege
+=> no_all_squash - Enable userâ€™s authority
 
 Step 05: Restart the NFS service and verify:
 --------------------------------------------
