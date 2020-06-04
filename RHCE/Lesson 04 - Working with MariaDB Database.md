@@ -197,30 +197,30 @@ how to delete table in mariadb
 -------------------------------
 	MariaDB [mydb]> drop table student;	
 		
-//drop is sql command and it use for delete table.
+	//drop is sql command and it use for delete table.
 creating user account in mariadb
 --------------------------------
 	MariaDB [(none)]> create user mobius@localhost identified by 
     'redhat';	
 		
-// create user sql command for user create
-// mobius is username.
-// @localhost- user mobius can connect just form localhost
+	// create user sql command for user create
+	// mobius is username.
+	// @localhost- user mobius can connect just form localhost
 Rename User account in mariadb
 ------------------------------
 MariaDB [(none)]>RENAME USER 'mobius@localhost' TO 
-   'duck'@'localhost';
+   	'duck'@'localhost';
 			
 		
 How to delete user in mariadb
 -----------------------------
 	MariaDB [(none)]>drop user mobius@localhost;	
 		
-Grant Insert,Update,Delete,and select privileges to user mobius
-	MariaDB [(none)]> grant insert,update,delete,select on 
-	mydb.* to mobius@localhost;	
+	Grant Insert,Update,Delete,and select privileges to user mobius
+		MariaDB [(none)]> grant insert,update,delete,select on 
+		mydb.* to mobius@localhost;	
 		
-// grant command use for user permission
+	// grant command use for user permission
 Flush the privileges
 --------------------
 	MariaDB [(none)]> flush privileges;	
@@ -268,8 +268,8 @@ how to start apache Server in linux
 -----------------------------------		
 	[root@localhost Desktop]#sudo service httpd start	
 		
-Apache,phpMyAdmin, Mariadb Configuration
-your All service Download from Internet
+	Apache,phpMyAdmin, Mariadb Configuration
+	your All service Download from Internet
 		
 	[root@localhost Desktop]# yum install epel-release	
 		
@@ -289,7 +289,7 @@ Add port your firewall
 	[root@localhost Desktop]# firewall-cmd --reload	
 	[root@localhost Desktop]# firewall-cmd --permanent --list-all	
 		
-//check firewall status //check permanent running service
+	//check firewall status //check permanent running service
 Run all service
 ---------------		
 	[root@localhost Desktop]# systemctl restart httpd
@@ -311,7 +311,7 @@ Run all service
 		
 Editing the Defaults File
 --------------------------
-Once you have located the defaults file, use a text editor to open the file and try to find lines like this under the [mysqld] section:
+	Once you have located the defaults file, use a text editor to open the file and try to find lines like this under the [mysqld] section:
 
 		
 	 [mysqld]
@@ -321,7 +321,7 @@ Once you have located the defaults file, use a text editor to open the file and 
     bind-address = 
     ...	
 		
-(The lines may not be in this order, and the order doesn't matter.) If you are able to locate these lines, make sure they are both commented out (prefaced with hash (#) characters), so that they look like this:
+	(The lines may not be in this order, and the order doesn't matter.) If you are able to locate these lines, make sure they are both commented out (prefaced with hash (#) characters), so that they look like this:
 
     
     [mysqld]
@@ -330,19 +330,19 @@ Once you have located the defaults file, use a text editor to open the file and 
     ...
     #bind-address = 
     ...
-(Again, the order of these lines don't matter) Save the file and restart the mysqld daemon or service (see Starting and Stopping MariaDB).
+	(Again, the order of these lines don't matter) Save the file and restart the mysqld daemon or service (see Starting and Stopping MariaDB).
 
 Granting User Connections From Remote Hosts
 --------------------------------------------		
 	GRANT ALL PRIVILEGES ON *.* TO 'root'@'192.168.100.%' IDENTIFIED BY 'my-new-password' WITH GRANT OPTION;	
 		
-(% is a wildcard) For more information about how to use GRANT, please see the GRANT page. At this point we have accomplished our goal and we have a user 'root' that can connect from anywhere on the 192.168.100.0/24 LAN.
+	(% is a wildcard) For more information about how to use GRANT, please see the GRANT page. At this point we have accomplished our goal and we have a user 'root' that can connect from anywhere on the 192.168.100.0/24 LAN.
 
 Port 3306 is Configured in Firewall
 -------------------------------------
-One more point to consider whether the firwall is configured to allow incoming request from remote clients:
+	One more point to consider whether the firwall is configured to allow incoming request from remote clients:
 
-On RHEL and CentOS 7, it may be necessary to configure the firewall to allow TCP access to MySQL from remote hosts. To do so, execute both of these commands:
+	On RHEL and CentOS 7, it may be necessary to configure the firewall to allow TCP access to MySQL from remote hosts. To do so, execute both of these commands:
 
 		
 
