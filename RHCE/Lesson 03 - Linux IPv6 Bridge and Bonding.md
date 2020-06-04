@@ -4,9 +4,9 @@
 
 Verify Bridge Interface (serverX):
 ----------------------------------
-[root@desktopX ~]# ifconfig
+	[root@desktopX ~]# ifconfig
  
-          br0: IP, MASK, GW, DNS
+         br0: IP, MASK, GW, DNS
 	 enp2s0/ens33: MAC
 
 Bridge Interface Configure:
