@@ -71,40 +71,40 @@ How to Delete database in mariadb
 ----------------------------------
 	MariaDB [(none)]> drop database mydb;   		
 		
-// mydb is database name
+	// mydb is database name
 How to select database in mariadb
 -----------------------------------
 	MariaDB [(none)]> use mydb;  		
 		
-// mydb is database name
+	// mydb is database name
 How to create table in mariadb
 --------------------------------
 	MariaDB [mydb]> create table student(id int auto_increment 
 	primary key,name varchar(200));		
 		
-// student is table name
-// id is column name and int is data type
-// auto_increment ...id column value auto increment
-// primary key for operation
-// name is column name
-// varchar(200) datatype and value length
+	// student is table name
+	// id is column name and int is data type
+	// auto_increment ...id column value auto increment
+	// primary key for operation
+	// name is column name
+	// varchar(200) datatype and value length
 how to add column in table in mariadb
 --------------------------------------
 	MariaDB [mydb]> alter table student add column roll 
 	varchar(200);		
 		
-//alter table is sql command
-//student table name
-//column is sql command
-// roll varchar(200) ...roll is column name and varchar datatype and length
+	//alter table is sql command
+	//student table name
+	//column is sql command
+	// roll varchar(200) ...roll is column name and varchar datatype and length
 how to delete column in table in mariadb
 ----------------------------------------
 	MariaDB [mydb]> alter table student drop column roll;		
 		
-// alter table is sql command
-//student is table name
-//drop is sql command and it use for delete column.
-//roll is column name.
+	// alter table is sql command
+	//student is table name
+	//drop is sql command and it use for delete column.
+	//roll is column name.
 How to show all tables in database in mariadb
 ----------------------------------------------
 	MariaDB [mydb]> show tables; 		
@@ -113,50 +113,50 @@ how to show creating table command in mariadb
 ---------------------------------------------
 	MariaDB [mydb]> show create table student; 		
 		
-//student is table name
+	//student is table name
 how to show table structure in mariadb
 ---------------------------------------
 	MariaDB [mydb]> describe student;  		
 		
-//student is table name
+	//student is table name
 how to data insert in table in mariadb
 ----------------------------------------
 	MariaDB [mydb]> insert into student(name) values('Rahman');  		
 		
-//student is table name
-//student is table name
+	//student is table name
+	//student is table name
 how to show all data in table in mariadb
 ----------------------------------------
 	MariaDB [mydb]> select * from student;  		
 		
-// * for all column selected
-// student is table name
+	// * for all column selected
+	// student is table name
 how to show data in table by column in mariadb
 ----------------------------------------------
 	MariaDB [mydb]> select name student;  		
 		
-// name is column name
-// student is table name
+	// name is column name
+	// student is table name
 how to show data in table by row in mariadb
 --------------------------------------------
 	MariaDB [mydb]> select * from student where id = 2;		
 		
-//* for all column selected
-// student is table name
-// where is clause that imposes a condition on the command execution.
-// id is column name
+	//* for all column selected
+	// student is table name
+	// where is clause that imposes a condition on the command execution.
+	// id is column name
 how to update data in table in mariadb
 --------------------------------------
 	MariaDB [mydb]> update student set name='raju' where id=4;		
 		
-// update sql command and use for data update in table.
-// student is table name.
-//name and id is column name.
+	// update sql command and use for data update in table.
+	// student is table name.
+	//name and id is column name.
 how to data delete in table in mariadb
 --------------------------------------
 	MariaDB [mydb]> delete * from student where id=2;	
 		
-//delete is sql command and it use for data delete in table;
+	//delete is sql command and it use for data delete in table;
 how to make relational table in mariadb
 ----------------------------------------
 	MariaDB [mydb]> create table country(id int auto_increment 
@@ -166,7 +166,7 @@ how to make relational table in mariadb
 	primary key,name varchar(200),countryid int,
 	foreign key(countryid) references country(id));	
 		
-//relation country table id column between city table countryid column
+	//relation country table id column between city table countryid column
 how to show data from two table in mariadb
 ------------------------------------------
 Using INNER JOIN
