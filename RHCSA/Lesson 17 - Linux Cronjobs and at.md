@@ -14,10 +14,10 @@ Crontab Format:
 	
 	1 = Minutes 	(0-59)
 	2 = Hour 	      (0-23)
-        3 = day of month(1-31)
-        4 = Months 	(1-12)  
- 	5 = Day of Week (0-6) here 0 or 7 is sunday
-        <cmd> = command to be execute 
+	3 = day of month(1-31)
+	4 = Months 	(1-12)  
+	5 = Day of Week (0-6) here 0 or 7 is sunday
+	<cmd> = command to be execute 
 
 List of current Cronjob
 -----------------------
