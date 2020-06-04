@@ -47,13 +47,13 @@ Group Volume Create:
 [root@localhost ~]# vgcreate vg1 /dev/vda5 /dev/vda6 /dev/vda7
 [root@localhost ~]# vgdisplay 
 
-Note for Exam: vgcreate –s 32M vg1 /dev/vda5 /dev/vda6 /dev/vda7
+Note for Exam: vgcreate â€“s 32M vg1 /dev/vda5 /dev/vda6 /dev/vda7
 
 (note: Defautl PE Size 4MiB)
 
 [root@localhost ~]# vgremove vg1
 
-[root@localhost ~]# vgcreate –s 32M vg1 /dev/vda5 /dev/vda6 /dev/vda7
+[root@localhost ~]# vgcreate â€“s 32M vg1 /dev/vda5 /dev/vda6 /dev/vda7
 [root@localhost ~]# vgdisplay 
 
 Logical Volume Create:
