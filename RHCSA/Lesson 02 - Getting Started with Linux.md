@@ -1,20 +1,20 @@
 Working with Linux CLI:
 =======================
 
-[student@hostX Desktop] $ 
-[root@hostX    Desktop] # 
-  1       2        3    4 
- 
- 	1: user name
- 	2: hostname
+	[student@hostX Desktop] $ 
+	[root@hostX    Desktop] # 
+	  1       2        3    4 
+
+	1: user name
+	2: hostname
 	3: user's current location
 	4: user types (root: #, regular user: $)
 
 Linux User's Types:
 -------------------
- => root user: Administrator (#)
- => system user: service (mail/ftp/games/daemon)-cannot login 
- => regular user: student, guest, sakib ($)
+	=> root user: Administrator (#)
+	=> system user: service (mail/ftp/games/daemon)-cannot login 
+	=> regular user: student, guest, sakib ($)
 
 Working with Linux Shells & Terminal:
 ------------------------------------
