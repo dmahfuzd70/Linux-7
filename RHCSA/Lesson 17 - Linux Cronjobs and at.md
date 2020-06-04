@@ -1,11 +1,11 @@
  Linux Scheduling using Crontab
 ---------------------------------
- Daemon: crond
- Package: crontabs
+	 Daemon: crond
+	 Package: crontabs
 
-[root@serverX ~]# rpm -qa | grep crontabs 
+	[root@serverX ~]# rpm -qa | grep crontabs 
 
-[root@serverX ~]# yum install crontabs -y
+	[root@serverX ~]# yum install crontabs -y
 
 Crontab Format:
 ==============
@@ -21,101 +21,101 @@ Crontab Format:
 
 List of current Cronjob
 -----------------------
-[root@serverX ~]# crontab -l   ; list of current job for root
+	[root@serverX ~]# crontab -l   ; list of current job for root
 
 Crontab Remove:
 --------------
-[root@serverX ~]# crontab -r
-[root@serverX ~]# crontab -l 
+	[root@serverX ~]# crontab -r
+	[root@serverX ~]# crontab -l 
 
 Crontab Edit
 --------------
-[root@serverX ~]# crontab -e
+	[root@serverX ~]# crontab -e
 
 Example 01:  Schedule a job every night 11.59 PM to shutdown the system: 
 ------------------------------------------------------------------------
-[root@serverX ~]# crontab –e
-59  23   *   *   *   /usr/sbin/poweroff 
+	[root@serverX ~]# crontab –e
+	59  23   *   *   *   /usr/sbin/poweroff 
 
-[root@serverX ~]# crontab –l
+	[root@serverX ~]# crontab –l
 
 Set the date 23.57 for job testing: 
 -----------------------------------
-[root@serverX ~]# date 
-[root@serverX ~]# date +%T%p -s "23:57:00"
-[root@serverX ~]# date 
+	[root@serverX ~]# date 
+	[root@serverX ~]# date +%T%p -s "23:57:00"
+	[root@serverX ~]# date 
 
-   or
+	   or
 
-[root@serverX ~]# date MMDDHHMMYY
-[root@serverX ~]# date 
-[root@serverX ~]# systemctl status crond.service
-[root@serverX ~]# systemctl restart crond.service
-[root@serverX ~]# systemctl enable crond.service
+	[root@serverX ~]# date MMDDHHMMYY
+	[root@serverX ~]# date 
+	[root@serverX ~]# systemctl status crond.service
+	[root@serverX ~]# systemctl restart crond.service
+	[root@serverX ~]# systemctl enable crond.service
 
-[root@serverX ~]# watch date 
+	[root@serverX ~]# watch date 
 
 Example 02: Take etc backup in .tar format under /backup directory on every Friday at midnight:
 ---------------------------------------------------------------------
-[root@serverX ~]# date +\%Y-\%m-\%d
+	[root@serverX ~]# date +\%Y-\%m-\%d
 
-[root@serverX ~]# mkdir /backup
-[root@serverX ~]# crontab –e
+	[root@serverX ~]# mkdir /backup
+	[root@serverX ~]# crontab –e
 
- 00 00 * * 5  tar -cvf /backup/etc_$(date +\%Y-\%m-\%d).tar  /etc
+	 00 00 * * 5  tar -cvf /backup/etc_$(date +\%Y-\%m-\%d).tar  /etc
 
-[root@serverX ~]# date
-[root@serverX ~]# cal              ; verify recent Thrusday
-[root@serverX ~]# date MMDD2358YY 
-[root@serverX ~]# date
+	[root@serverX ~]# date
+	[root@serverX ~]# cal              ; verify recent Thrusday
+	[root@serverX ~]# date MMDD2358YY 
+	[root@serverX ~]# date
 
-[root@serverX ~]# systemctl restart crond.service
+	[root@serverX ~]# systemctl restart crond.service
 
-[root@serverX ~]# watch date 
+	[root@serverX ~]# watch date 
 
-[root@serverX ~]# cd /backup
-[root@serverX ~]# ls
+	[root@serverX ~]# cd /backup
+	[root@serverX ~]# ls
 
 Example 03: Schedule job to run every five minute. Who are currently logged in server:
 ------------------------------------------------------------------------------
-[root@serverX ~]# crontab –e 
-*/5  *  *  *  *  who >> /backup/login_$(date +\%Y-\%m-\%d-\%T)
+	[root@serverX ~]# crontab –e 
+	*/5  *  *  *  *  who >> /backup/login_$(date +\%Y-\%m-\%d-\%T)
 
 Example 04: Check Ping Status at Night 1 to 5.00 AM every hour:
 --------------------------------------------------------------
-[root@serverX ~]# crontab –e 
+	[root@serverX ~]# crontab –e 
 
-00 1-5 * * *  ping -c 4 172.25.11.1 >> /backup/ping
+	00 1-5 * * *  ping -c 4 172.25.11.1 >> /backup/ping
 
-[root@serverX ~]# systemctl restart crond.service
-[root@serverX ~]# cd /backup
-[root@serverX ~]# ls
+	[root@serverX ~]# systemctl restart crond.service
+	[root@serverX ~]# cd /backup
+	[root@serverX ~]# ls
 
 Example 05:  Schedule a job to run every six hours in a day:
 ------------------------------------------------------------
-[root@serverX ~]# crontab –e
+	[root@serverX ~]# crontab –e
 
-* 0,6,12,18  *  *  * cat /proc/meminfo | mail -s "Memory Status" admin@example.com
+	* 0,6,12,18  *  *  * cat /proc/meminfo | mail -s "Memory Status" admin@example.com
  
 Example 06: Run a script at 01:00 am each weekday [Monday – Friday]: 
 ------------------------------------------------------------------
-00  01  *  *  1-5   /backup/db_backup.sh 
+	00  01  *  *  1-5   /backup/db_backup.sh 
 
 Example 07: Run a cronjob December 31 at Mid Night (23:59)  every year:
 -----------------------------------------------------------------------
- 59 23 31 12 * /backup/backup.sh
+	 59 23 31 12 * /backup/backup.sh
 
 Remove all cron jobs: 
 ----------------------------
-[root@serverX ~]# crontab –r
-[root@serverX ~]# crontab –l
+	[root@serverX ~]# crontab –r
+	[root@serverX ~]# crontab –l
 
 User based cron job:
 --------------------
-[root@serverX ~]# crontab –e -u student
+	[root@serverX ~]# crontab –e -u student
 
 
-===================== Thank you ===================
+	===================== Thank you ===================
 
 
 
