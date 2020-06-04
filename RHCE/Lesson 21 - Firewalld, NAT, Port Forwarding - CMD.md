@@ -245,7 +245,8 @@ Filtering & Port Forwarding:
 
 	Or:
 	--
-	[root@server100 ~]# firewall-cmd  --permanent --add-rich-rule 'rule family="ipv4" source address="192.168.X.0/24" service name="ssh" -j reject'
+	[root@server100 ~]# firewall-cmd  --permanent --add-rich-rule 'rule family="ipv4" 
+	source address="192.168.X.0/24" service name="ssh" -j reject'
 
 Deploy Outbound NAT Gateway 
 ----------------------------
