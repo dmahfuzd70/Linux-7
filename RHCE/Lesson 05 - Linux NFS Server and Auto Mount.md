@@ -159,4 +159,18 @@ Permanent Mount:
 
     [root@hostX ~]# mount -a 
 
-    ============== Thank You ================ 
+                                            ============== Thank You ================ 
+                                            
+
+
+AUTOFS Mount
+------------
+
+    One drawback of using /etc/fstab is that, regardless of how infrequently a user accesses the NFS mounted file system, the system must dedicate resources to keep the mounted file system in place. This is not a problem with one or two mounts, but when the system is maintaining mounts to many systems at one time, overall system performance can be affected. An alternative to /etc/fstab is to use the kernel-based automount utility. An automounter consists of two components:
+    
+    1. a kernel module that implements a file system, and
+    2. a user-space daemon that performs all of the other functions.
+    
+    The automount utility can mount and unmount NFS file systems automatically (on-demand mounting), therefore saving system resources. It can be used to mount other file systems including AFS, SMBFS, CIFS, and local file systems.
+
+                                            
