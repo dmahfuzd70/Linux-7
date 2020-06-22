@@ -207,6 +207,13 @@ Check Status:
 
 Allow DNS Through Firewall:
 ---------------------------
+	[root@nsX named]# named-checkconf -z /etc/named.conf
+	zone dmahfuzd.com/IN: loaded serial 0
+	zone 198.168.192/IN: loaded serial 0
+	zone 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa/IN: loaded serial 0
+	zone 1.0.0.127.in-addr.arpa/IN: loaded serial 0
+	zone 0.in-addr.arpa/IN: loaded serial 0
+
 	[root@nsX named]# systemctl enable firewalld.service
 	[root@nsX named]# systemctl restart firewalld.service
 
