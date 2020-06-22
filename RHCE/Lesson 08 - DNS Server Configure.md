@@ -210,8 +210,11 @@ Allow DNS Through Firewall:
 	[root@nsX named]# systemctl enable firewalld.service
 	[root@nsX named]# systemctl restart firewalld.service
 
+	[root@nsX named]# firewall-cmd --permanent --add-port=53/tcp
+	[root@nsX named]# firewall-cmd --permanent --add-port=53/udp
 	[root@nsX named]# firewall-cmd --permanent --add-service=dns
 	[root@nsX named]# firewall-cmd --reload
+	[root@nsX named]# firewall-cmd --list-all
 
 Step 12: Checking DNS 
 ---------------------
