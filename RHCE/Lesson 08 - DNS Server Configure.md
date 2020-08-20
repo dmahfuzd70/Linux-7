@@ -205,7 +205,7 @@ Check Status:
 -------------
 	[root@nsX named]# systemctl status named.service
 
-Allow DNS Through Firewall:
+Check DNS Server:
 ---------------------------
 	[root@nsX named]# named-checkconf -z /etc/named.conf
 	zone dmahfuzd.com/IN: loaded serial 0
@@ -216,6 +216,9 @@ Allow DNS Through Firewall:
 
 	[root@nsX named]# systemctl enable firewalld.service
 	[root@nsX named]# systemctl restart firewalld.service
+
+Allow DNS Through Firewall:
+---------------------------
 
 	[root@nsX named]# firewall-cmd --permanent --add-port=53/tcp
 	[root@nsX named]# firewall-cmd --permanent --add-port=53/udp
