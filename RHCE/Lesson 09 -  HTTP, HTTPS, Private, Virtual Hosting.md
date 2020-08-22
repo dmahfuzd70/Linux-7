@@ -49,8 +49,9 @@ Step 01: DNS Part:
 Step 03: web hosting
 ---------------------
 Package Install 
-	-------: 
+
 	[root@nsX named]# yum install httpd -y
+	
 	[root@nsX named]# cd /var/www/html/
 	[root@nsX html]# ls
 	[root@nsX html]# vi index.html
