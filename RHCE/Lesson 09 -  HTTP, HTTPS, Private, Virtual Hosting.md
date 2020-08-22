@@ -44,12 +44,13 @@ Step 01: DNS Part:
 	[root@nsX named]# nslookup www.example.com
 	[root@nsX named]# dig www.example.com
 
-	Step 02: Package Install 
-	-------: 
-	[root@nsX named]# yum install httpd -y
+	
 
 Step 03: web hosting
 ---------------------
+Package Install 
+	-------: 
+	[root@nsX named]# yum install httpd -y
 	[root@nsX named]# cd /var/www/html/
 	[root@nsX html]# ls
 	[root@nsX html]# vi index.html
