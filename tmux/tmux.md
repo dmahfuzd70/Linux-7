@@ -60,7 +60,8 @@ To start your first Tmux session, simply type tmux in your console:
     First press Ctrl+b then left keybord and then press o Go to the next pane
     First press Ctrl+b then left keybord and then press ; Toggle between the current and previous pane
     First press Ctrl+b then left keybord and then press x Close the current pane
-Sync tmux all panes
-    Ctrl+b then press : then type setw synchronize-panes on
-    Ctrl+b then press : then type setw synchronize-panes off
+    Ctrl+b then press : then type setw synchronize-panes on Sync tmux all panes
+    Ctrl+b then press : then type setw synchronize-panes off Sync tmux all panes
+
+    
     
