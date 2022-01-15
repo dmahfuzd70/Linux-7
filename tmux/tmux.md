@@ -51,17 +51,17 @@ To start your first Tmux session, simply type tmux in your console:
      
  Working with Tmux Windows and Panes 
  -----------------------------------
-    First press Ctrl+b then left keybord and then press c Create a new window (with shell)
-    First press Ctrl+b then left keybord and then press w Choose window from a list
-    First press Ctrl+b then left keybord and then press 0 Switch to window 0 (by number )
-    First press Ctrl+b then left keybord and then press , Rename the current window
-    First press Ctrl+b then left keybord and then press % Split current pane horizontally into two panes
-    First press Ctrl+b then left keybord and then press " Split current pane vertically into two panes
-    First press Ctrl+b then left keybord and then press o Go to the next pane
-    First press Ctrl+b then left keybord and then press ; Toggle between the current and previous pane
-    First press Ctrl+b then left keybord and then press x Close the current pane
-    Ctrl+b then press : then type setw synchronize-panes on Sync tmux all panes
-    Ctrl+b then press : then type setw synchronize-panes off Sync tmux all panes
+    First press Ctrl+b then left keybord and then press c | Create a new window (with shell)
+    First press Ctrl+b then left keybord and then press w | Choose window from a list
+    First press Ctrl+b then left keybord and then press 0 | Switch to window 0 (by number )
+    First press Ctrl+b then left keybord and then press , | Rename the current window
+    First press Ctrl+b then left keybord and then press % | Split current pane horizontally into two panes
+    First press Ctrl+b then left keybord and then press " | Split current pane vertically into two panes
+    First press Ctrl+b then left keybord and then press o | Go to the next pane
+    First press Ctrl+b then left keybord and then press ; | Toggle between the current and previous pane
+    First press Ctrl+b then left keybord and then press x | Close the current pane
+    Ctrl+b then press : then type setw synchronize-panes on | Sync tmux all panes
+    Ctrl+b then press : then type setw synchronize-panes off | Sync tmux all panes
 
     
     
